@@ -26,7 +26,7 @@ Advanced usage:
 
 ```yaml
 - name: Generate and Publish Allure Report
-  uses: your-username/allure-results-combiner-publisher@v1
+  uses: Valiantsin2021/allure-results-combiner-publisher@v1
   with:
     github-token: ${{ secrets.GITHUB_TOKEN }}
     results-pattern: 'allure-results-*'
@@ -91,7 +91,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Generate and Publish Allure Report
-        uses: your-username/allure-results-combiner-publisher@v1
+        uses: Valiantsin2021/allure-results-combiner-publisher@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 ```

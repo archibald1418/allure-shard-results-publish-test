@@ -1,6 +1,6 @@
 name: 'Allure Results Combiner and Publisher'
 description: 'Combines Allure results from matrix jobs, generates a unified report, and publishes it to GitHub Pages'
-author: 'Your Name'
+author: 'Valentin Lutchanka <https://github.com/Valiantsin2021>'
 branding:
   icon: 'bar-chart-2'
   color: 'green'

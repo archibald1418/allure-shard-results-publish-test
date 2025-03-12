@@ -53,10 +53,8 @@ Advanced usage:
 | history-directory    | Directory for Allure history                          | No       | 'allure-history'       |
 | gh-pages             | Directory for GitHub Pages                            | No       | 'gh-pages'             |
 | gh-pages-branch      | Branch for GitHub Pages                               | No       | 'gh-pages'             |
-| report-title         | Title for the Allure report                           | No       | 'Allure Test Report'   |
 | retention-days       | Number of days to retain the Allure report artifact   | No       | '14'                   |
 | publish-to-pages     | Whether to publish the report to GitHub Pages         | No       | 'true'                 |
-| process-results      | Custom script to process the Allure report results    | No       | ''                     |
 | fail-on-empty-results| Fail if no Allure results are found                   | No       | 'false'                |
 
 ## Example Workflow

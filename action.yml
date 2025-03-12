@@ -33,10 +33,6 @@ inputs:
     description: 'Branch for GitHub Pages'
     required: false
     default: 'gh-pages'
-  report-title:
-    description: 'Title for the Allure report'
-    required: false
-    default: 'Allure Test Report'
   retention-days:
     description: 'Number of days to retain the Allure report artifact'
     required: false
@@ -45,10 +41,6 @@ inputs:
     description: 'Whether to publish the report to GitHub Pages'
     required: false
     default: 'true'
-  process-results:
-    description: 'Custom script to process the Allure report results'
-    required: false
-    default: ''
   fail-on-empty-results:
     description: 'Whether to fail if no Allure results are found'
     required: false
@@ -100,7 +92,6 @@ runs:
         allure_results: ${{ inputs.results-directory }}
         allure_history: ${{ inputs.history-directory }}
         allure_report: ${{ inputs.report-directory }}
-        allure_title: ${{ inputs.report-title }}
 
     - name: Upload Allure report as artifact
       uses: actions/upload-artifact@v4
@@ -117,14 +108,3 @@ runs:
         github_token: ${{ inputs.github-token }}
         publish_branch: ${{ inputs.gh-pages-branch }}
         publish_dir: ${{ inputs.history-directory }}
-
-    - name: Process report results
-      if: inputs.process-results != ''
-      shell: bash
-      run: |
-        if [ -f "./${{ inputs.report-directory }}/widgets/summary.json" ]; then
-          echo "Processing report summary using custom script: ${{ inputs.process-results }}"
-          ${{ inputs.process-results }} ./${{ inputs.report-directory }}/widgets/summary.json
-        else
-          echo "No summary.json found in the report or no custom processing script provided."
-        fi

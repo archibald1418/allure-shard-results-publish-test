@@ -101,6 +101,14 @@ runs:
         if-no-files-found: warn
         retention-days: ${{ inputs.retention-days }}
 
+    - name: Queue deployment
+      uses: softprops/turnstyle@v2
+      with:
+        poll-interval-seconds: 20
+        timeout-seconds: 1200
+      env:
+        github_token: ${{ inputs.github-token }}
+
     - name: Deploy report to GitHub Pages
       if: inputs.publish-to-pages == 'true'
       uses: peaceiris/actions-gh-pages@v4

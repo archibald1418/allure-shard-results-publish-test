@@ -45,7 +45,10 @@ inputs:
     description: 'Whether to fail if no Allure results are found'
     required: false
     default: 'false'
-
+  add-env:
+    description: 'Whether to collect and add to report the env variables'
+    required: false
+    default: 'false'
 runs:
   using: 'composite'
   steps:
@@ -88,7 +91,7 @@ runs:
     - name: Link Git Information And Browser Version To Allure Report
       shell: bash
       working-directory: ${{ inputs.results-directory }}
-      if: always()
+      if: inputs.add-env == 'true'
       run: |
         git config --global --add safe.directory "$GITHUB_WORKSPACE"
         {

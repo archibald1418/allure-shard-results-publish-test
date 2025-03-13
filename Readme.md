@@ -26,7 +26,7 @@ Advanced usage:
 
 ```yaml
 - name: Generate and Publish Allure Report
-  uses: Valiantsin2021/allure-shard-results-publish@1.0.1
+  uses: Valiantsin2021/allure-shard-results-publish@1.0.5
   with:
     github-token: ${{ secrets.GITHUB_TOKEN }}
     results-pattern: 'allure-results-*'
@@ -38,8 +38,8 @@ Advanced usage:
     report-title: 'My Test Report'
     retention-days: '30'
     publish-to-pages: 'true'
-    process-results: 'node ./path/to/your/reporter.js'
     fail-on-empty-results: 'false'
+    add-env: 'true'
 ```
 
 ## Inputs
@@ -56,6 +56,7 @@ Advanced usage:
 | retention-days       | Number of days to retain the Allure report artifact   | No       | '14'                   |
 | publish-to-pages     | Whether to publish the report to GitHub Pages         | No       | 'true'                 |
 | fail-on-empty-results| Fail if no Allure results are found                   | No       | 'false'                |
+| add-env              | Whether to collect and add to report the env variables| No       | 'false'                |
 
 ## Example Workflow
 
@@ -89,7 +90,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Generate and Publish Allure Report
-        uses: Valiantsin2021/allure-shard-results-publish@1.0.1
+        uses: Valiantsin2021/allure-shard-results-publish@1.0.5
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
